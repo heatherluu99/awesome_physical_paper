@@ -2,15 +2,15 @@ name: Daily arXiv tracker
 
 on:
   schedule:
-    # 01:30 UTC = 09:30 北京时间. arXiv announces new papers around 00:00 UTC (Sun-Thu).
+    # 01:30 UTC (09:30 Beijing time). arXiv announces new papers around 00:00 UTC (Sun-Thu).
     - cron: "30 1 * * *"
   workflow_dispatch:
     inputs:
       max_new:
-        description: "本次最多分析多少篇新论文"
+        description: "Max number of new papers to analyse in this run"
         default: "50"
       fetch_multiplier:
-        description: "抓取量倍数（回填历史数据时调大，如 5）"
+        description: "Fetch-size multiplier (raise it, e.g. to 5, to backfill history)"
         default: "1"
 
 permissions:

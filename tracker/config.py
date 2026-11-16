@@ -56,20 +56,18 @@ FETCH_MULTIPLIER = int(os.environ.get("FETCH_MULTIPLIER") or 1)
 LLM_MODEL = os.environ.get("LLM_MODEL") or "claude-opus-5-5"
 LLM_CONCURRENCY = int(os.environ.get("LLM_CONCURRENCY") or 4)
 
-# (key, 中文名, English name). The chart uses the English name because GitHub
-# runners ship without CJK fonts.
+# (key, display name). The key is what the LLM returns and what is stored.
 CATEGORIES = [
-    ("manipulation", "操作与抓取", "Manipulation"),
-    ("locomotion_nav", "运动与导航", "Locomotion & Navigation"),
-    ("vla", "具身基础模型 / VLA", "Foundation Models / VLA"),
-    ("hitl", "人机协作与人在回路", "Human-in-the-loop"),
-    ("industrial_rl", "工业 RL 与过程控制", "Industrial RL & Control"),
-    ("sim2real", "仿真与 Sim2Real", "Simulation & Sim2Real"),
-    ("perception", "感知与建图", "Perception & Mapping"),
-    ("other", "其他", "Other"),
+    ("manipulation", "Manipulation"),
+    ("locomotion_nav", "Locomotion & Navigation"),
+    ("vla", "Foundation Models / VLA"),
+    ("hitl", "Human-in-the-loop"),
+    ("industrial_rl", "Industrial RL & Control"),
+    ("sim2real", "Simulation & Sim2Real"),
+    ("perception", "Perception & Mapping"),
+    ("other", "Other"),
 ]
-CATEGORY_ZH = {k: zh for k, zh, _ in CATEGORIES}
-CATEGORY_EN = {k: en for k, _, en in CATEGORIES}
+CATEGORY_NAME = dict(CATEGORIES)
 
 # --- README ----------------------------------------------------------------
 README_RECENT_DAYS = 3  # full listing for the last N days
